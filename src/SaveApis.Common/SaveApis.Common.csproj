@@ -24,6 +24,8 @@
     <ItemGroup>
       <PackageReference Include="Autofac" Version="8.2.0" />
       <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
+      <PackageReference Include="FluentResults" Version="3.16.0" />
+      <PackageReference Include="MediatR" Version="12.4.1" />
       <PackageReference Include="Roslynator.Analyzers" Version="4.13.0">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

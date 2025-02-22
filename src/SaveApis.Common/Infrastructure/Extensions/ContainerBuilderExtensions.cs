@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using SaveApis.Common.Application.DI;
 using SaveApis.Common.Infrastructure.DI;
+using SaveApis.Common.Infrastructure.Helper;
 
 namespace SaveApis.Common.Infrastructure.Extensions;
 
@@ -23,9 +24,12 @@ public static class ContainerBuilderExtensions
         }
     }
 
-    public static ContainerBuilder WithCommonModules(this ContainerBuilder builder)
+    public static ContainerBuilder WithCommonModules(this ContainerBuilder builder, IAssemblyHelper helper)
     {
+        builder.RegisterInstance(helper).As<IAssemblyHelper>().SingleInstance();
+
         builder.WithModule<FileSystemModule>();
+        builder.WithModule<MediatorModule>(args: helper);
 
         return builder;
     }
