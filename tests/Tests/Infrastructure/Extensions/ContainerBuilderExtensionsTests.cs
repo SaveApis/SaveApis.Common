@@ -1,4 +1,6 @@
-﻿using Autofac;
+﻿using System.Reflection;
+using Autofac;
+using SaveApis.Common.Application.Helper;
 using SaveApis.Common.Infrastructure.Extensions;
 
 namespace Tests.Infrastructure.Extensions;
@@ -32,9 +34,10 @@ public class ContainerBuilderExtensionsTests
     public void Can_Register_Common_Modules()
     {
         // Arrange
+        var helper = new AssemblyHelper(Assembly.GetExecutingAssembly());
         var builder = new ContainerBuilder();
 
         // Act & Assert
-        Assert.DoesNotThrow(() => builder.WithCommonModules());
+        Assert.DoesNotThrow(() => builder.WithCommonModules(helper));
     }
 }
