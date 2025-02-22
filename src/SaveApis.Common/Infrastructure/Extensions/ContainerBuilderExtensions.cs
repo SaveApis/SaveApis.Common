@@ -30,6 +30,7 @@ public static class ContainerBuilderExtensions
 
         builder.WithModule<FileSystemModule>();
         builder.WithModule<MediatorModule>(args: helper);
+        builder.WithModule<SerilogModule>();
 
         return builder;
     }
