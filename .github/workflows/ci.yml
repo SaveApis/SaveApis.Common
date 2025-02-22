@@ -57,3 +57,33 @@ jobs:
         run: dotnet restore src/SaveApis.Common/SaveApis.Common.csproj
       - name: Build
         run: dotnet build src/SaveApis.Common/SaveApis.Common.csproj --nologo --configuration Release --no-restore
+  test:
+    needs: build
+    name: Test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+      - name: Cache
+        id: cache
+        uses: actions/cache@v4.2.1
+        with:
+          path: |
+            ~/.nuget/packages
+            **/obj
+          key: ${{ hashFiles('**/*.csproj') }}-test
+      
+      # Setup
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v4.3.0
+        with:
+          dotnet-version: 9.0.x
+      
+      # Action
+      - name: Restore dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: dotnet restore tests/Tests/Tests.csproj
+      - name: Test
+        run: dotnet test tests/Tests/Tests.csproj --no-restore
