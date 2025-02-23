@@ -7,7 +7,7 @@ root = true
 indent_style = space
 
 # Microsoft .NET properties
-csharp_preferred_modifier_order = internal, protected, public, private, file, new, required, sealed, virtual, async, override, readonly, extern, unsafe, volatile, abstract, static:suggestion
+csharp_preferred_modifier_order = internal, public, protected, private, file, new, static, sealed, async, override, abstract, readonly, extern, unsafe, volatile, required, virtual:suggestion
 
 # ReSharper properties
 resharper_blank_lines_after_block_statements = 1
@@ -15,6 +15,7 @@ resharper_blank_lines_after_multiline_statements = 1
 resharper_blank_lines_before_block_statements = 1
 resharper_blank_lines_before_control_transfer_statements = 0
 resharper_csharp_blank_lines_around_invocable = 0
+resharper_wrap_ternary_expr_style = chop_if_long
 
 # Code files
 [*.{cs,csx}]
