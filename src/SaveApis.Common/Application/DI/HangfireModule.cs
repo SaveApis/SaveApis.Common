@@ -2,6 +2,7 @@
 using Autofac.Extensions.DependencyInjection;
 using Hangfire;
 using Hangfire.Console;
+using Hangfire.Correlate;
 using Hangfire.Pro.Redis;
 using MediatR;
 using Microsoft.Extensions.Configuration;
@@ -70,7 +71,7 @@ public class HangfireModule(IConfiguration configuration, IAssemblyHelper helper
 
         var collection = new ServiceCollection();
 
-        collection.AddHangfire((_, globalConfiguration) =>
+        collection.AddHangfire((provider, globalConfiguration) =>
         {
             globalConfiguration.SetDataCompatibilityLevel(CompatibilityLevel.Version_180);
             globalConfiguration.UseSimpleAssemblyNameTypeSerializer();
@@ -85,6 +86,7 @@ public class HangfireModule(IConfiguration configuration, IAssemblyHelper helper
 
             globalConfiguration.UseSerilogLogProvider();
             globalConfiguration.UseThrottling();
+            globalConfiguration.UseCorrelate(provider);
         });
 
         builder.Populate(collection);
