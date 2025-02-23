@@ -24,10 +24,13 @@
     <ItemGroup>
       <PackageReference Include="Autofac" Version="8.2.0" />
       <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
+      <PackageReference Include="Correlate" Version="6.0.0" />
+      <PackageReference Include="Correlate.DependencyInjection" Version="6.0.0" />
       <PackageReference Include="FluentResults" Version="3.16.0" />
       <PackageReference Include="Hangfire.Autofac" Version="2.7.0" />
       <PackageReference Include="Hangfire.Console" Version="1.4.3" />
       <PackageReference Include="Hangfire.Core" Version="1.8.18" />
+      <PackageReference Include="Hangfire.Correlate" Version="2.2.0" />
       <PackageReference Include="Hangfire.NetCore" Version="1.8.18" />
       <PackageReference Include="Hangfire.Pro.Redis" Version="3.1.1" />
       <PackageReference Include="Hangfire.Throttling" Version="1.4.1" />
@@ -36,19 +39,19 @@
       <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.2" />
       <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0-preview.3.efcore.9.0.0" />
       <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Json.Newtonsoft" Version="9.0.0-preview.3.efcore.9.0.0" />
-      <PackageReference Include="Roslynator.Analyzers" Version="4.13.0">
+      <PackageReference Include="Roslynator.Analyzers" Version="4.13.1">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Roslynator.CodeFixes" Version="4.13.0">
+      <PackageReference Include="Roslynator.CodeFixes" Version="4.13.1">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Roslynator.Formatting.Analyzers" Version="4.13.0">
+      <PackageReference Include="Roslynator.Formatting.Analyzers" Version="4.13.1">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Roslynator.Refactorings" Version="4.13.0">
+      <PackageReference Include="Roslynator.Refactorings" Version="4.13.1">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
