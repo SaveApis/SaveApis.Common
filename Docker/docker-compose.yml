@@ -1,0 +1,41 @@
+﻿services:
+  server:
+    depends_on:
+      redis:
+        required: true
+        condition: service_healthy
+    hostname: server
+    image: common-example:dev
+    build:
+      context: ..
+      dockerfile: examples/Example/Dockerfile
+    environment:
+      - application_type=Server
+      - hangfire_redis_host=redis
+      - hangfire_redis_port=6379
+      - hangfire_redis_database=0
+      - "hangfire_redis_prefix=common:example:hangfire:"
+  worker:
+    depends_on:
+      redis:
+        required: true
+        condition: service_healthy
+    hostname: server
+    image: common-example:dev
+    build:
+      context: ..
+      dockerfile: examples/Example/Dockerfile
+    environment:
+      - application_type=Worker
+      - hangfire_redis_host=redis
+      - hangfire_redis_port=6379
+      - hangfire_redis_database=0
+      - "hangfire_redis_prefix=common:example:hangfire:"
+  redis:
+    hostname: redis
+    image: redis:8.0-M03-bookworm
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping", "|", "grep", "PONG" ]
+      timeout: 1s
+      retries: 50
+      interval: 1s

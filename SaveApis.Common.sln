@@ -7,10 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A34F8716-4C9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaveApis.Common", "src\SaveApis.Common\SaveApis.Common.csproj", "{F33B0C84-4B18-42B0-AC30-B3D6EC045594}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{42418DE8-0ED2-4A52-8BB7-D7473B8A8EE6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "tests\Tests\Tests.csproj", "{52BD1A9B-724A-40DA-98DE-55BC854ECF44}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{DCD52518-42C1-4562-B7D1-A4118ED6B271}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "examples\Example\Example.csproj", "{8CA5B6F7-9E95-4EDA-BCD1-8859C3AB3447}"
@@ -28,10 +24,6 @@ Global
         {F33B0C84-4B18-42B0-AC30-B3D6EC045594}.Debug|Any CPU.Build.0 = Debug|Any CPU
         {F33B0C84-4B18-42B0-AC30-B3D6EC045594}.Release|Any CPU.ActiveCfg = Release|Any CPU
         {F33B0C84-4B18-42B0-AC30-B3D6EC045594}.Release|Any CPU.Build.0 = Release|Any CPU
-        {52BD1A9B-724A-40DA-98DE-55BC854ECF44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-        {52BD1A9B-724A-40DA-98DE-55BC854ECF44}.Debug|Any CPU.Build.0 = Debug|Any CPU
-        {52BD1A9B-724A-40DA-98DE-55BC854ECF44}.Release|Any CPU.ActiveCfg = Release|Any CPU
-        {52BD1A9B-724A-40DA-98DE-55BC854ECF44}.Release|Any CPU.Build.0 = Release|Any CPU
         {8CA5B6F7-9E95-4EDA-BCD1-8859C3AB3447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
         {8CA5B6F7-9E95-4EDA-BCD1-8859C3AB3447}.Debug|Any CPU.Build.0 = Debug|Any CPU
         {8CA5B6F7-9E95-4EDA-BCD1-8859C3AB3447}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,7 +31,6 @@ Global
     EndGlobalSection
     GlobalSection(NestedProjects) = preSolution
         {F33B0C84-4B18-42B0-AC30-B3D6EC045594} = {A34F8716-4C9A-441B-9FD8-6A178EB9D6FC}
-        {52BD1A9B-724A-40DA-98DE-55BC854ECF44} = {42418DE8-0ED2-4A52-8BB7-D7473B8A8EE6}
         {8CA5B6F7-9E95-4EDA-BCD1-8859C3AB3447} = {DCD52518-42C1-4562-B7D1-A4118ED6B271}
     EndGlobalSection
 EndGlobal
