@@ -24,6 +24,7 @@
     <ItemGroup>
       <PackageReference Include="Autofac" Version="8.2.0" />
       <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
+      <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
       <PackageReference Include="Correlate" Version="6.0.0" />
       <PackageReference Include="Correlate.DependencyInjection" Version="6.0.0" />
       <PackageReference Include="FluentResults" Version="3.16.0" />
@@ -37,8 +38,10 @@
       <PackageReference Include="MediatR" Version="12.4.1" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
       <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.2" />
+      <PackageReference Include="PasswordGenerator" Version="2.1.0" />
       <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0-preview.3.efcore.9.0.0" />
       <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Json.Newtonsoft" Version="9.0.0-preview.3.efcore.9.0.0" />
+      <PackageReference Include="Riok.Mapperly" Version="4.1.1" />
       <PackageReference Include="Roslynator.Analyzers" Version="4.13.1">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -65,6 +68,7 @@
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="TestableIO.System.IO.Abstractions.Extensions" Version="2.2.5" />
+      <PackageReference Include="Vogen" Version="7.0.0" />
     </ItemGroup>
 
 </Project>

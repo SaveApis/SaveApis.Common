@@ -37,6 +37,7 @@ public static class ContainerBuilderExtensions
         builder.WithModule<MediatorModule>(args: [helper]);
         builder.WithModule<HangfireModule>(args: [configuration, helper, applicationType]);
         builder.WithModule<EfCoreModule>(args: [helper]);
+        builder.WithModule<MapperModule>(args: [helper]);
         builder.WithModule<CorrelateModule>();
         builder.WithModule<SerilogModule>();
 
