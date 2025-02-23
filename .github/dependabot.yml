@@ -4,8 +4,23 @@
 # https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 
 version: 2
+registries:
+  hangfire-ace:
+    type: nuget-feed
+    url: ${{ secrets.HANGFIRE_ACE_URL }}
+    username: ${{ secrets.HANGFIRE_ACE_USER }}
+    password: ${{ secrets.HANGFIRE_ACE_TOKEN }}
+  hangfire-pro:
+    type: nuget-feed
+    url: ${{ secrets.HANGFIRE_PRO_URL }}
+    username: ${{ secrets.HANGFIRE_PRO_USER }}
+    password: ${{ secrets.HANGFIRE_PRO_TOKEN }}
+
 updates:
   - package-ecosystem: "nuget" # See documentation for possible values
+    registries: 
+      - hangfire-ace
+      - hangfire-pro
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
