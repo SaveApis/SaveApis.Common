@@ -1,4 +1,11 @@
 SaveApis.Common
+<a name="1.1.0"></a>
+## [1.1.0](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.1.0) (2025-02-24)
+
+### ✨ Features
+
+* Builder support ([#15](https://www.github.com/SaveApis/SaveApis.Common/issues/15)) ([00a4406](https://www.github.com/SaveApis/SaveApis.Common/commit/00a4406a4914f2cd7c2dcd612521fbea5e481d88))
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.0.1) (2025-02-24)
 
