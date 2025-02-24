@@ -5,6 +5,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using SaveApis.Common.Application.Hangfire.Events;
+using SaveApis.Common.Domain.Types;
 using SaveApis.Common.Infrastructure.Hangfire.Attributes;
 using SaveApis.Common.Infrastructure.Hangfire.Jobs;
 using SaveApis.Common.Infrastructure.Persistence.Sql;
@@ -15,6 +16,11 @@ namespace SaveApis.Common.Application.Hangfire.Jobs;
 [HangfireQueue(HangfireQueue.System)]
 public class MigrateDatabaseJob(IMediator mediator, IEnumerable<IDesignTimeDbContextFactory<BaseDbContext>> registeredFactories) : BaseJob<ApplicationStartedEvent>
 {
+    protected override bool CheckSupport(ApplicationStartedEvent @event)
+    {
+        return @event.ApplicationType == ApplicationType.Server;
+    }
+
     [HangfireJobName("Migrate databases")]
     public async override Task RunAsync(ApplicationStartedEvent @event, PerformContext? performContext = null, CancellationToken cancellationToken = default)
     {
