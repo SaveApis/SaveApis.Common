@@ -1,4 +1,11 @@
 SaveApis.Common
+<a name="1.0.1"></a>
+## [1.0.1](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.0.1) (2025-02-24)
+
+### 🐛 Bug Fixes
+
+* **database:** Multiple database migration ([#14](https://www.github.com/SaveApis/SaveApis.Common/issues/14)) ([d6e84f5](https://www.github.com/SaveApis/SaveApis.Common/commit/d6e84f5a1d8d3949b856cd8f1276f6d9a76d5e92))
+
 <a name="1.0.0"></a>
 ## [1.0.0](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.0.0) (2025-02-24)
 
