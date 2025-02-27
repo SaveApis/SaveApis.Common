@@ -1,4 +1,11 @@
 SaveApis.Common
+<a name="1.2.1"></a>
+## [1.2.1](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.2.1) (2025-02-27)
+
+### Other
+
+* **core:** Read ApplicationType from external source ([#17](https://www.github.com/SaveApis/SaveApis.Common/issues/17)) ([a52edee](https://www.github.com/SaveApis/SaveApis.Common/commit/a52edeeaf0c39df095c0b364562a76cc8420ec0a))
+
 <a name="1.2.0"></a>
 ## [1.2.0](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.2.0) (2025-02-27)
 
