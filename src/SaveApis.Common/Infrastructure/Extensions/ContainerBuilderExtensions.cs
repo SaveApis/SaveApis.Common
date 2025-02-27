@@ -26,12 +26,8 @@ public static class ContainerBuilderExtensions
         }
     }
 
-    public static ContainerBuilder WithCommonModules(this ContainerBuilder builder, IConfiguration configuration, IAssemblyHelper helper)
+    public static ContainerBuilder WithCommonModules(this ContainerBuilder builder, IConfiguration configuration, IAssemblyHelper helper, ApplicationType applicationType)
     {
-        var applicationType = Enum.TryParse(configuration["application_type"] ?? string.Empty, true, out ApplicationType type)
-            ? type
-            : ApplicationType.Server;
-
         builder.WithModule<CoreModule>(args: [helper, applicationType]);
         builder.WithModule<FileSystemModule>();
         builder.WithModule<MediatorModule>(args: [helper]);
