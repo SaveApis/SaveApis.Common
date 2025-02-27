@@ -32,7 +32,7 @@ public static class ContainerBuilderExtensions
             ? type
             : ApplicationType.Server;
 
-        builder.WithModule<CoreModule>(args: [helper]);
+        builder.WithModule<CoreModule>(args: [helper, applicationType]);
         builder.WithModule<FileSystemModule>();
         builder.WithModule<MediatorModule>(args: [helper]);
         builder.WithModule<HangfireModule>(args: [configuration, helper, applicationType]);
