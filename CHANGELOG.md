@@ -1,4 +1,11 @@
 SaveApis.Common
+<a name="1.2.0"></a>
+## [1.2.0](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.2.0) (2025-02-27)
+
+### ✨ Features
+
+* **core:** Register current ApplicationType ([#16](https://www.github.com/SaveApis/SaveApis.Common/issues/16)) ([bd53c2e](https://www.github.com/SaveApis/SaveApis.Common/commit/bd53c2edfbbeb45ffb2e02a86e0d89cc4cddb38a))
+
 <a name="1.1.0"></a>
 ## [1.1.0](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.1.0) (2025-02-24)
 
