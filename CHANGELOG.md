@@ -1,4 +1,11 @@
 SaveApis.Common
+<a name="1.2.2"></a>
+## [1.2.2](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.2.2) (2025-03-01)
+
+### Other
+
+* **logging:** Override Hangfire LogLevel ([#18](https://www.github.com/SaveApis/SaveApis.Common/issues/18)) ([1c81851](https://www.github.com/SaveApis/SaveApis.Common/commit/1c81851593e5f824ded35d1e45977ed52073666e))
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.2.1) (2025-02-27)
 
