@@ -1,4 +1,11 @@
 SaveApis.Common
+<a name="1.2.4"></a>
+## [1.2.4](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.2.4) (2025-03-01)
+
+### 🐛 Bug Fixes
+
+* **database:** Fix missing event interface ([#20](https://www.github.com/SaveApis/SaveApis.Common/issues/20)) ([3e3b820](https://www.github.com/SaveApis/SaveApis.Common/commit/3e3b820a80a106b8958cdf2cfc40f30dade85136))
+
 <a name="1.2.3"></a>
 ## [1.2.3](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.2.3) (2025-03-01)
 
