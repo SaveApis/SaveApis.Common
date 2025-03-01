@@ -1,6 +1,8 @@
-﻿namespace SaveApis.Common.Application.Hangfire.Events;
+﻿using SaveApis.Common.Infrastructure.Hangfire.Events;
 
-public class MigrationCompletedEvent
+namespace SaveApis.Common.Application.Hangfire.Events;
+
+public class MigrationCompletedEvent : IEvent
 {
     public required Type Type { get; init; }
 }
