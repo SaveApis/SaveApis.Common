@@ -18,7 +18,7 @@ public class SerilogModule : BaseModule
         {
             configuration.Enrich.FromLogContext();
             configuration.MinimumLevel.Verbose();
-            configuration.MinimumLevel.Override("Hangfire", LogEventLevel.Warning);
+            configuration.MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning);
             configuration.WriteTo.Console(LogEventLevel.Information, formatProvider: CultureInfo.InvariantCulture);
             configuration.WriteTo.File("Logs/log.txt", formatProvider: CultureInfo.InvariantCulture, rollingInterval: RollingInterval.Day, retainedFileCountLimit: 7);
         });
