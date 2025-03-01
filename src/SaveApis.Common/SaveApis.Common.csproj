@@ -9,7 +9,7 @@
         <RepositoryUrl>https://github.com/SaveApis/SaveApis.Common</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>saveapis core common library</PackageTags>
-        <Version>1.2.2</Version>
+        <Version>1.2.3</Version>
         <LangVersion>latest</LangVersion>
         <Authors>SaveApis | Software Development &amp; Deployment</Authors>
     </PropertyGroup>

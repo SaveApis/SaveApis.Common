@@ -1,4 +1,11 @@
 SaveApis.Common
+<a name="1.2.3"></a>
+## [1.2.3](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.2.3) (2025-03-01)
+
+### 🐛 Bug Fixes
+
+* **logging:** Fix LogLevel override ([#19](https://www.github.com/SaveApis/SaveApis.Common/issues/19)) ([61b6e13](https://www.github.com/SaveApis/SaveApis.Common/commit/61b6e1320d269cd7bdd87a0553cc290849344814))
+
 <a name="1.2.2"></a>
 ## [1.2.2](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.2.2) (2025-03-01)
 
