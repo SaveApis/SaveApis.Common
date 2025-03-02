@@ -1,4 +1,11 @@
 SaveApis.Common
+<a name="1.3.0"></a>
+## [1.3.0](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.3.0) (2025-03-02)
+
+### ✨ Features
+
+* **di:** Add custom modules support ([b5bda36](https://www.github.com/SaveApis/SaveApis.Common/commit/b5bda369fe68442fbe18423ee3cdf6fef45bf463))
+
 <a name="1.2.4"></a>
 ## [1.2.4](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.2.4) (2025-03-01)
 
