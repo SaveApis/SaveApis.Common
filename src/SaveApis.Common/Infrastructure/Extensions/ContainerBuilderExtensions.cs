@@ -26,7 +26,9 @@ public static class ContainerBuilderExtensions
         }
     }
 
-    public static ContainerBuilder WithCommonModules(this ContainerBuilder builder, IConfiguration configuration, IAssemblyHelper helper, ApplicationType applicationType)
+    public static ContainerBuilder WithCommonModules(this ContainerBuilder builder, IConfiguration configuration,
+        IAssemblyHelper helper, ApplicationType applicationType,
+        Action<ContainerBuilder, IConfiguration, IAssemblyHelper, ApplicationType>? additionalModules = null)
     {
         builder.WithModule<CoreModule>(args: [helper, applicationType]);
         builder.WithModule<FileSystemModule>();
@@ -36,6 +38,8 @@ public static class ContainerBuilderExtensions
         builder.WithModule<MapperModule>(args: [helper]);
         builder.WithModule<CorrelateModule>();
         builder.WithModule<SerilogModule>();
+
+        additionalModules?.Invoke(builder, configuration, helper, applicationType);
 
         return builder;
     }
