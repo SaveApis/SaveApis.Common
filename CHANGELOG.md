@@ -1,4 +1,11 @@
 SaveApis.Common
+<a name="1.3.1"></a>
+## [1.3.1](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.3.1) (2025-03-03)
+
+### Other
+
+* **di:** Remove correlation module ([d7aed7b](https://www.github.com/SaveApis/SaveApis.Common/commit/d7aed7b0f851517fbb1d3f22df59733f1c631a38))
+
 <a name="1.3.0"></a>
 ## [1.3.0](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.3.0) (2025-03-02)
 
