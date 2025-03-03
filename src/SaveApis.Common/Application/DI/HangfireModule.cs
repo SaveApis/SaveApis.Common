@@ -71,7 +71,7 @@ public class HangfireModule(IConfiguration configuration, IAssemblyHelper helper
 
         var collection = new ServiceCollection();
 
-        collection.AddHangfire((provider, globalConfiguration) =>
+        collection.AddHangfire((_, globalConfiguration) =>
         {
             globalConfiguration.SetDataCompatibilityLevel(CompatibilityLevel.Version_180);
             globalConfiguration.UseSimpleAssemblyNameTypeSerializer();
@@ -86,7 +86,6 @@ public class HangfireModule(IConfiguration configuration, IAssemblyHelper helper
 
             globalConfiguration.UseSerilogLogProvider();
             globalConfiguration.UseThrottling();
-            globalConfiguration.UseCorrelate(provider);
         });
 
         builder.Populate(collection);
