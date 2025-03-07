@@ -2,7 +2,6 @@
 using Autofac.Extensions.DependencyInjection;
 using Hangfire;
 using Hangfire.Console;
-using Hangfire.Correlate;
 using Hangfire.Pro.Redis;
 using MediatR;
 using Microsoft.Extensions.Configuration;
@@ -47,6 +46,12 @@ public class HangfireModule(IConfiguration configuration, IAssemblyHelper helper
     {
         builder.RegisterAssemblyTypes(helper.GetAssemblies().ToArray())
             .Where(type => type.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IJob<>)))
+            .AsImplementedInterfaces()
+            .AsSelf();
+
+        builder.RegisterAssemblyOpenGenericTypes(helper.GetAssemblies().ToArray())
+            .Where(type =>
+                type.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IJob<>)))
             .AsImplementedInterfaces()
             .AsSelf();
     }
