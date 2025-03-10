@@ -1,0 +1,30 @@
+services:
+  application:
+    depends_on:
+      database:
+        condition: service_healthy
+    image: common-example-console:dev
+    build:
+      context: ..
+      dockerfile: examples/Example.Console/Dockerfile
+    environment:
+      - database_sql_name=Example
+      - database_sql_server=database
+      - database_sql_port=3306
+      - database_sql_database=example
+      - database_sql_user=example
+      - database_sql_password=example
+  database:
+    image: mysql:9.2.0
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=example
+      - MYSQL_USER=example
+      - MYSQL_PASSWORD=example
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-uexample", "-pexample" ]
+      interval: 1s
+      timeout: 3s
+      retries: 30

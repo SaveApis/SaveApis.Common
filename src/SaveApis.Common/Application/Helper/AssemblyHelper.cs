@@ -5,21 +5,14 @@ namespace SaveApis.Common.Application.Helper;
 
 public class AssemblyHelper : IAssemblyHelper
 {
-    private readonly ICollection<Assembly> _assemblies;
+    private readonly IList<Assembly> _assemblies = [];
 
-    public AssemblyHelper(Assembly callingAssembly)
+    public AssemblyHelper(Assembly callerAssembly)
     {
-        _assemblies = [];
-
-        AddAssemblies(Assembly.GetExecutingAssembly(), callingAssembly);
+        RegisterAssemblies(Assembly.GetExecutingAssembly(), callerAssembly);
     }
 
-    public IEnumerable<Assembly> GetAssemblies()
-    {
-        return _assemblies;
-    }
-
-    public IAssemblyHelper AddAssembly(Assembly assembly)
+    public IAssemblyHelper RegisterAssembly(Assembly assembly)
     {
         if (_assemblies.Contains(assembly))
         {
@@ -31,13 +24,23 @@ public class AssemblyHelper : IAssemblyHelper
         return this;
     }
 
-    public IAssemblyHelper AddAssemblies(params Assembly[] assemblies)
+    public IAssemblyHelper RegisterAssemblies(IEnumerable<Assembly> assemblies)
     {
         foreach (var assembly in assemblies)
         {
-            AddAssembly(assembly);
+            RegisterAssembly(assembly);
         }
 
         return this;
+    }
+
+    public IAssemblyHelper RegisterAssemblies(params Assembly[] assemblies)
+    {
+        return RegisterAssemblies(assemblies.ToList());
+    }
+
+    public IReadOnlyCollection<Assembly> GetRegisteredAssemblies()
+    {
+        return _assemblies.AsReadOnly();
     }
 }

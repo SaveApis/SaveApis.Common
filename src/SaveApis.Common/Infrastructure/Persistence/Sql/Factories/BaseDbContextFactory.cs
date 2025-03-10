@@ -6,18 +6,19 @@ using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace SaveApis.Common.Infrastructure.Persistence.Sql.Factories;
 
-public abstract class BaseDbContextFactory<TContext>(IConfiguration configuration) : IDesignTimeDbContextFactory<TContext> where TContext : BaseDbContext
+public class BaseDbContextFactory<TContext>(IConfiguration configuration) : IDesignTimeDbContextFactory<TContext> where TContext : BaseDbContext
 {
     public TContext CreateDbContext(string[] args)
     {
         try
         {
             var options = BuildOptions();
+
             return (TContext)Activator.CreateInstance(typeof(TContext), options)!;
         }
         catch (Exception e)
         {
-            throw new InvalidOperationException($"An error occurred creating the DB context {typeof(TContext).Name}", e);
+            throw new InvalidOperationException($"An error occurred creating the DB context {typeof(TContext).Name}. ({e.Message})", e);
         }
     }
 

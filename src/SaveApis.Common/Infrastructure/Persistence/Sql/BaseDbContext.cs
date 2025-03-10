@@ -11,8 +11,8 @@ public abstract class BaseDbContext(DbContextOptions options) : DbContext(option
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.HasDefaultSchema(Schema);
-        RegisterEntities(modelBuilder);
+        CreateEntities(modelBuilder);
     }
 
-    protected abstract void RegisterEntities(ModelBuilder modelBuilder);
+    protected abstract void CreateEntities(ModelBuilder modelBuilder);
 }

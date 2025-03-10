@@ -4,5 +4,5 @@ namespace SaveApis.Common.Infrastructure.DI;
 
 public abstract class BaseModule : Module
 {
-    protected override abstract void Load(ContainerBuilder builder);
+    protected abstract override void Load(ContainerBuilder builder);
 }
