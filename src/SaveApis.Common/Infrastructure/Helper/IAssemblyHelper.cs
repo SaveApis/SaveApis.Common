@@ -4,8 +4,9 @@ namespace SaveApis.Common.Infrastructure.Helper;
 
 public interface IAssemblyHelper
 {
-    IEnumerable<Assembly> GetAssemblies();
+    IAssemblyHelper RegisterAssembly(Assembly assembly);
+    IAssemblyHelper RegisterAssemblies(IEnumerable<Assembly> assemblies);
+    IAssemblyHelper RegisterAssemblies(params Assembly[] assemblies);
 
-    IAssemblyHelper AddAssembly(Assembly assembly);
-    IAssemblyHelper AddAssemblies(params Assembly[] assemblies);
+    IReadOnlyCollection<Assembly> GetRegisteredAssemblies();
 }
