@@ -3,6 +3,8 @@ services:
     depends_on:
       database:
         condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
     image: common-example-console:dev
     build:
       context: ..
@@ -14,6 +16,8 @@ services:
       - database_sql_database=example
       - database_sql_user=example
       - database_sql_password=example
+      - logging_outputs=console,file,elasticsearch
+      - logging_elasticsearch_uri=http://elasticsearch:9200
   database:
     image: mysql:9.2.0
     environment:
@@ -30,6 +34,31 @@ services:
       retries: 30
     volumes:
       - database:/var/lib/mysql
+  elasticsearch:
+    image: elasticsearch:8.17.3
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    mem_limit: 1GB
+    ports:
+      - "9200:9200"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:9200" ]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+    volumes:
+      - elasticsearch:/usr/share/elasticsearch/data
+  kibana:
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    image: kibana:8.17.3
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
 
 volumes:
   database:
+  elasticsearch:

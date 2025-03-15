@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using SaveApis.Common.Application.DI;
 using SaveApis.Common.Application.Helper;
 using SaveApis.Common.Infrastructure.Extensions;
+using Serilog;
 
 var builder = Host.CreateApplicationBuilder(args);
 
@@ -18,20 +19,24 @@ builder.ConfigureContainer(new AutofacServiceProviderFactory(), containerBuilder
 {
     containerBuilder.WithModule<EfCoreModule>(null, assemblyHelper);
     containerBuilder.WithModule<MediatorModule>(null, assemblyHelper);
+
+    containerBuilder.WithModule<SerilogModule>(null, builder.Configuration);
 });
 
 var app = builder.Build();
 
-var mediator = app.Services.CreateScope().ServiceProvider.GetRequiredService<IMediator>();
+using var scope = app.Services.CreateScope();
+var logger = scope.ServiceProvider.GetRequiredService<ILogger>();
+var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
 
 // Normal Query
 var normalQueryResult = await mediator.Send(new NormalQueryQuery()).ConfigureAwait(false);
-Console.WriteLine(normalQueryResult.Value);
+logger.Information(normalQueryResult.Value);
 
 // Stream Query
 await foreach (var item in mediator.CreateStream(new StreamQueryQuery()))
 {
-    Console.WriteLine(item.Value);
+    logger.Information(item.Value);
 }
 
 await app.RunAsync().ConfigureAwait(false);
