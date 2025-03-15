@@ -9,6 +9,7 @@
         <option name="services">
           <list>
             <option value="application" />
+            <option value="kibana" />
           </list>
         </option>
         <option name="sourceFilePath" value="Docker/docker-compose.yml" />
