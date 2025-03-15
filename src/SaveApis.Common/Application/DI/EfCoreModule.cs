@@ -1,10 +1,10 @@
 ﻿using Autofac;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.Extensions.Logging;
 using SaveApis.Common.Infrastructure.DI;
 using SaveApis.Common.Infrastructure.Helper;
 using SaveApis.Common.Infrastructure.Persistence.Sql;
+using Serilog;
 
 namespace SaveApis.Common.Application.DI;
 
@@ -19,11 +19,11 @@ public class EfCoreModule(IAssemblyHelper assemblyHelper) : BaseModule
 
         builder.RegisterBuildCallback(scope =>
         {
-            var logger = scope.Resolve<ILogger<EfCoreModule>>();
+            var logger = scope.Resolve<ILogger>();
             var factories = scope.Resolve<IEnumerable<IDesignTimeDbContextFactory<BaseDbContext>>>().ToList();
             if (factories.Count == 0)
             {
-                logger.LogInformation("No factories found.");
+                logger.Information("No factories found.");
 
                 return;
             }
@@ -32,9 +32,9 @@ public class EfCoreModule(IAssemblyHelper assemblyHelper) : BaseModule
             {
                 using var context = factory.CreateDbContext([]);
 
-                logger.LogInformation("Applying migrations for {context}", context.GetType().Name);
+                logger.Information("Applying migrations for {context}", context.GetType().Name);
                 context.Database.Migrate();
-                logger.LogInformation("Migrations applied for {context}", context.GetType().Name);
+                logger.Information("Migrations applied for {context}", context.GetType().Name);
             }
         });
     }
