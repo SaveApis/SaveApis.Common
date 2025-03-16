@@ -2,6 +2,8 @@
 
 using System.Reflection;
 using Autofac.Extensions.DependencyInjection;
+using Example.Console.Domains.Mapper.Domain.Models;
+using Example.Console.Domains.Mapper.Infrastructure.Mapper;
 using Example.Console.Domains.Mediator.Application.Mediator.Queries.NormalQuery;
 using Example.Console.Domains.Mediator.Application.Mediator.Queries.StreamQuery;
 using MediatR;
@@ -19,6 +21,7 @@ builder.ConfigureContainer(new AutofacServiceProviderFactory(), containerBuilder
 {
     containerBuilder.WithModule<EfCoreModule>(null, assemblyHelper);
     containerBuilder.WithModule<MediatorModule>(null, assemblyHelper);
+    containerBuilder.WithModule<MapperModule>(null, assemblyHelper);
 
     containerBuilder.WithModule<SerilogModule>(null, builder.Configuration);
 });
@@ -38,5 +41,15 @@ await foreach (var item in mediator.CreateStream(new StreamQueryQuery()))
 {
     logger.Information(item.Value);
 }
+
+// Mapper
+var mapper = scope.ServiceProvider.GetRequiredService<IExampleMapper>();
+var model = new ExampleModel
+{
+    Id = Random.Shared.Next(),
+    Name = "Name-" + Random.Shared.Next(),
+    Ignored = 1.1m,
+};
+_ = mapper.EntityToDto(model);
 
 await app.RunAsync().ConfigureAwait(false);
