@@ -14,9 +14,9 @@ public class ExampleTrackedEntityConfiguration : IEntityTypeConfiguration<Exampl
         builder.HasKey(e => e.Id);
 
         builder.Property(e => e.Id).IsRequired().HasConversion<Id.EfCoreValueConverter>();
-        builder.Property(e => e.Name).IsRequired().HasMaxLength(100);
-
-        // Ignore TrackedChanges property. Required for EF Core to ignore this property if using ITrackedEntity interface.
-        builder.Ignore(e => e.TrackedChanges);
+        builder.Property(e => e.Test).IsRequired().HasMaxLength(100);
+        builder.Property(e => e.TestInt).IsRequired();
+        builder.Property(e => e.AnonymizedTest).IsRequired().HasMaxLength(100);
+        builder.Property(e => e.IgnoredTest).IsRequired().HasMaxLength(100);
     }
 }

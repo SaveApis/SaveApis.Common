@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Example.Console.Domains.EfCore.Persistence.Sql.Migrations
 {
     [DbContext(typeof(ExampleDbContext))]
-    [Migration("20250313194316_CreateExampleEntityTable")]
-    partial class CreateExampleEntityTable
+    [Migration("20250316183001_CreateExampleTables")]
+    partial class CreateExampleTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,6 +39,34 @@ namespace Example.Console.Domains.EfCore.Persistence.Sql.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Entities", "Example");
+                });
+
+            modelBuilder.Entity("Example.Console.Domains.EfCore.Domain.Entities.ExampleTrackedEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("AnonymizedTest")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("IgnoredTest")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Test")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<int>("TestInt")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TrackedEntities", "Example");
                 });
 #pragma warning restore 612, 618
         }

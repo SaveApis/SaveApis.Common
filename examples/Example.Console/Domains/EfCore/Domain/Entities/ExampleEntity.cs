@@ -1,9 +1,11 @@
 ﻿using SaveApis.Common.Domain.VOs;
-using SaveApis.Generator.EfCore.Infrastructure.Persistence.Sql.Entities;
+using SaveApis.Common.Infrastructure.Persistence.Sql.Entities;
+using SaveApis.Generator.EfCore.Infrastructure.Persistence.Sql.Entities.Attributes;
 
 namespace Example.Console.Domains.EfCore.Domain.Entities;
 
-public partial class ExampleEntity : IEntity<Id>
+[Entity]
+public partial class ExampleEntity : IEntity
 {
     public Id Id { get; }
     public string Name { get; private set; }

@@ -1,4 +1,4 @@
-﻿namespace SaveApis.Common.Domain.Types;
+﻿namespace SaveApis.Common.Domain.Logging.Types;
 
 public enum LoggingOutput
 {

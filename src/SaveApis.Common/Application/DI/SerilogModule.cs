@@ -7,7 +7,7 @@ using Elastic.Serilog.Sinks;
 using Elastic.Transport;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SaveApis.Common.Domain.Types;
+using SaveApis.Common.Domain.Logging.Types;
 using SaveApis.Common.Infrastructure.DI;
 using Serilog;
 using Serilog.Events;
@@ -40,7 +40,8 @@ public class SerilogModule(IConfiguration configuration) : BaseModule
         builder.Populate(collection);
     }
 
-    private static void RegisterOutput(LoggerConfiguration loggerConfiguration, IReadOnlyCollection<LoggingOutput> outputs, LoggingOutput output, Action<LoggerConfiguration> loggerConfigurationAction)
+    private static void RegisterOutput(LoggerConfiguration loggerConfiguration, IReadOnlyCollection<LoggingOutput> outputs, LoggingOutput output,
+        Action<LoggerConfiguration> loggerConfigurationAction)
     {
         if (!outputs.Contains(output))
         {
