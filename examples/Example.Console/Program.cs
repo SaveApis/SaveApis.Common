@@ -2,6 +2,8 @@
 
 using System.Reflection;
 using Autofac.Extensions.DependencyInjection;
+using Example.Console.Domains.EfCore.Application.Mediator.Commands.CreateTrackedEntity;
+using Example.Console.Domains.EfCore.Application.Mediator.Commands.UpdateTrackedEntity;
 using Example.Console.Domains.Mapper.Domain.Models;
 using Example.Console.Domains.Mapper.Infrastructure.Mapper;
 using Example.Console.Domains.Mediator.Application.Mediator.Queries.NormalQuery;
@@ -50,6 +52,13 @@ var model = new ExampleModel
     Name = "Name-" + Random.Shared.Next(),
     Ignored = 1.1m,
 };
+
 _ = mapper.EntityToDto(model);
+
+// Tracking
+var createResult = await mediator.Send(new CreateTrackedEntityCommand()).ConfigureAwait(false);
+_ = await mediator.Send(new UpdateTrackedEntityCommand(createResult.Value)).ConfigureAwait(false);
+_ = await mediator.Send(new UpdateTrackedEntityCommand(createResult.Value)).ConfigureAwait(false);
+_ = await mediator.Send(new UpdateTrackedEntityCommand(createResult.Value)).ConfigureAwait(false);
 
 await app.RunAsync().ConfigureAwait(false);

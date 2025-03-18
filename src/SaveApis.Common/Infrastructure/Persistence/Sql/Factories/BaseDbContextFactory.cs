@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using MySqlConnector;
@@ -6,7 +7,7 @@ using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace SaveApis.Common.Infrastructure.Persistence.Sql.Factories;
 
-public class BaseDbContextFactory<TContext>(IConfiguration configuration) : IDesignTimeDbContextFactory<TContext> where TContext : BaseDbContext
+public class BaseDbContextFactory<TContext>(IConfiguration configuration, IMediator mediator) : IDesignTimeDbContextFactory<TContext> where TContext : BaseDbContext
 {
     public TContext CreateDbContext(string[] args)
     {
@@ -14,7 +15,7 @@ public class BaseDbContextFactory<TContext>(IConfiguration configuration) : IDes
         {
             var options = BuildOptions();
 
-            return (TContext)Activator.CreateInstance(typeof(TContext), options)!;
+            return (TContext)Activator.CreateInstance(typeof(TContext), options, mediator)!;
         }
         catch (Exception e)
         {

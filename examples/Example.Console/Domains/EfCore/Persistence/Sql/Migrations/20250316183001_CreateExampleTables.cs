@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Example.Console.Domains.EfCore.Persistence.Sql.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateExampleEntityTable : Migration
+    public partial class CreateExampleTables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,6 +31,26 @@ namespace Example.Console.Domains.EfCore.Persistence.Sql.Migrations
                     table.PrimaryKey("PK_Entities", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "TrackedEntities",
+                schema: "Example",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    Test = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    TestInt = table.Column<int>(type: "int", nullable: false),
+                    AnonymizedTest = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IgnoredTest = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TrackedEntities", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
         }
 
         /// <inheritdoc />
@@ -38,6 +58,10 @@ namespace Example.Console.Domains.EfCore.Persistence.Sql.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Entities",
+                schema: "Example");
+
+            migrationBuilder.DropTable(
+                name: "TrackedEntities",
                 schema: "Example");
         }
     }

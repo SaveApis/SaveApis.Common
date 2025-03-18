@@ -1,11 +1,12 @@
 ﻿using Example.Console.Domains.EfCore.Domain.Entities;
 using Example.Console.Domains.EfCore.Persistence.Sql.Configurations;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using SaveApis.Common.Infrastructure.Persistence.Sql;
 
 namespace Example.Console.Domains.EfCore.Persistence.Sql;
 
-public class ExampleDbContext(DbContextOptions options) : BaseDbContext(options)
+public class ExampleDbContext(DbContextOptions options, IMediator mediator) : BaseDbContext(options, mediator)
 {
     protected override string Schema => "Example";
 

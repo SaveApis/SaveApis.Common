@@ -43,10 +43,23 @@ namespace Example.Console.Domains.EfCore.Persistence.Sql.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("char(36)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("AnonymizedTest")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
+
+                    b.Property<string>("IgnoredTest")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Test")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<int>("TestInt")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
