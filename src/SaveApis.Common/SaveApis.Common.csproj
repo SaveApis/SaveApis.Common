@@ -51,11 +51,11 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="saveapis.generator.efcore" Version="3.0.4"/>
+        <PackageReference Include="SaveApis.Generator.EfCore" Version="3.0.6" />
         <PackageReference Include="Serilog.Extensions.Hosting" Version="9.0.0"/>
         <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0"/>
         <PackageReference Include="Serilog.Sinks.File" Version="6.0.0"/>
-        <PackageReference Include="Vogen" Version="7.0.1"/>
+        <PackageReference Include="Vogen" Version="7.0.2" />
     </ItemGroup>
 
 </Project>
