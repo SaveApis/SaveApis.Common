@@ -1,8 +1,8 @@
 ﻿using Example.Console.Domains.EfCore.Persistence.Sql.Factories;
 using FluentResults;
 using Microsoft.EntityFrameworkCore;
-using SaveApis.Common.Domain.VOs;
-using SaveApis.Common.Infrastructure.Mediator;
+using SaveApis.Common.Domains.Core.Domain.VOs;
+using SaveApis.Common.Domains.Mediator.Infrastructure.Commands;
 
 namespace Example.Console.Domains.EfCore.Application.Mediator.Commands.UpdateTrackedEntity;
 

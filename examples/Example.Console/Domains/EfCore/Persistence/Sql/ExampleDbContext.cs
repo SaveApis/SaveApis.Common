@@ -2,7 +2,8 @@
 using Example.Console.Domains.EfCore.Persistence.Sql.Configurations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using SaveApis.Common.Infrastructure.Persistence.Sql;
+using SaveApis.Common.Domains.EfCore.Infrastructure;
+using SaveApis.Common.Domains.EfCore.Infrastructure.Persistence.Sql;
 
 namespace Example.Console.Domains.EfCore.Persistence.Sql;
 

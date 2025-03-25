@@ -1,5 +1,5 @@
-﻿using SaveApis.Common.Domain.VOs;
-using SaveApis.Common.Infrastructure.Persistence.Sql.Entities;
+﻿using SaveApis.Common.Domains.Core.Domain.VOs;
+using SaveApis.Common.Domains.EfCore.Infrastructure.Persistence.Sql.Entities;
 
 namespace Example.Console.Domains.EfCore.Domain.Entities;
 

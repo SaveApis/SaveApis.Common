@@ -1,7 +1,7 @@
 ﻿using Example.Console.Domains.EfCore.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SaveApis.Common.Domain.VOs;
+using SaveApis.Common.Domains.Core.Domain.VOs;
 
 namespace Example.Console.Domains.EfCore.Persistence.Sql.Configurations;
 

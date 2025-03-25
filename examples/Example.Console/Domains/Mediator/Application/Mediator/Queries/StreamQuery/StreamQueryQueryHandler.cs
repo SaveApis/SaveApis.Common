@@ -1,5 +1,5 @@
 ﻿using FluentResults;
-using SaveApis.Common.Infrastructure.Mediator;
+using SaveApis.Common.Domains.Mediator.Infrastructure.Queries;
 
 namespace Example.Console.Domains.Mediator.Application.Mediator.Queries.StreamQuery;
 
