@@ -1,6 +1,6 @@
-﻿using SaveApis.Common.Domain.VOs;
-using SaveApis.Common.Infrastructure.Persistence.Sql.Entities;
-using SaveApis.Common.Infrastructure.Tracking.Attributes;
+﻿using SaveApis.Common.Domains.Core.Domain.VOs;
+using SaveApis.Common.Domains.EfCore.Infrastructure.Persistence.Sql.Entities;
+using SaveApis.Common.Domains.Tracking.Infrastructure.Attributes;
 
 namespace Example.Console.Domains.EfCore.Domain.Entities;
 

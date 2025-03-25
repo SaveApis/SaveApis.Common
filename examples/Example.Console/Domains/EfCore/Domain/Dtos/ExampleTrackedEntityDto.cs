@@ -1,4 +1,4 @@
-﻿using SaveApis.Common.Domain.VOs;
+﻿using SaveApis.Common.Domains.Core.Domain.VOs;
 
 namespace Example.Console.Domains.EfCore.Domain.Dtos;
 

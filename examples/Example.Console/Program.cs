@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System.Reflection;
+using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Example.Console.Domains.EfCore.Application.Mediator.Commands.CreateTrackedEntity;
 using Example.Console.Domains.EfCore.Application.Mediator.Commands.UpdateTrackedEntity;
@@ -11,9 +12,13 @@ using Example.Console.Domains.Mediator.Application.Mediator.Queries.StreamQuery;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SaveApis.Common.Application.DI;
-using SaveApis.Common.Application.Helper;
-using SaveApis.Common.Infrastructure.Extensions;
+using SaveApis.Common.Domains.Core.Application.Helper;
+using SaveApis.Common.Domains.Core.Infrastructure.Extensions;
+using SaveApis.Common.Domains.Core.Infrastructure.Helper;
+using SaveApis.Common.Domains.EfCore.Application.DI;
+using SaveApis.Common.Domains.Logging.Application.DI;
+using SaveApis.Common.Domains.Mapper.Application.DI;
+using SaveApis.Common.Domains.Mediator.Application.DI;
 using Serilog;
 
 var builder = Host.CreateApplicationBuilder(args);
