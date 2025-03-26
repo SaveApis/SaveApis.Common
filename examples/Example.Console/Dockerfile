@@ -1,12 +1,12 @@
 # Use a specific version of the runtime image for reproducibility and security
-FROM mcr.microsoft.com/dotnet/runtime:9.0-alpine AS base
+FROM mcr.microsoft.com/dotnet/runtime:9.0 AS base
 # Set a default non-root user for security
 ARG APP_UID=1000
 USER $APP_UID
 WORKDIR /app
 
 # Use a specific version of the SDK image for reproducibility
-FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS build
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 # Set build configuration as an argument with a default value
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src

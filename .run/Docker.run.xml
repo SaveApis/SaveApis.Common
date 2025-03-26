@@ -8,7 +8,8 @@
         <option name="commandLineOptions" value="--build" />
         <option name="services">
           <list>
-            <option value="application" />
+            <option value="application-worker" />
+            <option value="application-server" />
             <option value="kibana" />
           </list>
         </option>
