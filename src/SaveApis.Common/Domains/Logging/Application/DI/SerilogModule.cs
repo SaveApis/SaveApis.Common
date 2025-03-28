@@ -11,7 +11,6 @@ using SaveApis.Common.Domains.Core.Infrastructure.DI;
 using SaveApis.Common.Domains.Logging.Domain.Types;
 using Serilog;
 using Serilog.Events;
-using Serilog.Filters;
 
 namespace SaveApis.Common.Domains.Logging.Application.DI;
 
@@ -30,8 +29,6 @@ public class SerilogModule(IConfiguration configuration) : BaseModule
         collection.AddSerilog((_, loggerConfiguration) =>
         {
             loggerConfiguration.Enrich.FromLogContext();
-            loggerConfiguration.Filter.ByExcluding(Matching.FromSource("Microsoft.AspNetCore.Server.Kestrel"));
-            loggerConfiguration.Filter.ByExcluding(Matching.FromSource("Microsoft.AspNetCore.Hosting.Diagnostics"));
             RegisterOutput(loggerConfiguration, outputs, LoggingOutput.Console, RegisterConsoleOutput);
             RegisterOutput(loggerConfiguration, outputs, LoggingOutput.File, RegisterFileOutput);
             RegisterOutput(loggerConfiguration, outputs, LoggingOutput.Elasticsearch, RegisterElasticsearchOutput);

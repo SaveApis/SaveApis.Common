@@ -16,4 +16,9 @@ public partial class Id
     {
         return input;
     }
+
+    public static Id Generate()
+    {
+        return From(Guid.NewGuid());
+    }
 }
