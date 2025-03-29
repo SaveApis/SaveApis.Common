@@ -34,7 +34,10 @@ jobs:
       # Action
       - name: Add nuget feeds
         if: steps.cache.outputs.cache-hit != 'true'
-        run: dotnet nuget add source ${{ secrets.HANGFIRE_ACE_URL }} --name Hangfire.ACE --username ${{ secrets.HANGFIRE_ACE_USER }} --password ${{ secrets.HANGFIRE_ACE_TOKEN }} --store-password-in-clear-text && dotnet nuget add source ${{ secrets.HANGFIRE_PRO_URL }} --name Hangfire.PRO --username ${{ secrets.HANGFIRE_PRO_USER }} --password ${{ secrets.HANGFIRE_PRO_TOKEN }} --store-password-in-clear-text
+        run: |
+          dotnet nuget add source ${{ secrets.HANGFIRE_ACE_URL }} --name Hangfire.ACE --username ${{ secrets.HANGFIRE_ACE_USER }} --password ${{ secrets.HANGFIRE_ACE_TOKEN }} --store-password-in-clear-text
+          dotnet nuget add source ${{ secrets.HANGFIRE_PRO_URL }} --name Hangfire.PRO --username ${{ secrets.HANGFIRE_PRO_USER }} --password ${{ secrets.HANGFIRE_PRO_TOKEN }} --store-password-in-clear-text
+          dotnet nuget add source https://nuget.pkg.github.com/SaveApis/index.json --name GitHub --username ${{ github.actor }} --password ${{ github.token }} --store-password-in-clear-text
       - name: Restore dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: dotnet restore src/SaveApis.Common/SaveApis.Common.csproj
