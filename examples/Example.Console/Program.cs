@@ -1,12 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using System.Reflection;
+﻿using System.Reflection;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SaveApis.Common.Domains.Core.Application.DI;
 using SaveApis.Common.Domains.Core.Application.Helper;
 using SaveApis.Common.Domains.Core.Infrastructure.Extensions;
 using SaveApis.Common.Domains.EfCore.Application.DI;
+using SaveApis.Common.Domains.FileSystem.Application.DI;
 using SaveApis.Common.Domains.Hangfire.Application.DI;
 using SaveApis.Common.Domains.Hangfire.Infrastructure.Extensions;
 using SaveApis.Common.Domains.Logging.Application.DI;
@@ -24,6 +23,7 @@ builder.ConfigureContainer(new AutofacServiceProviderFactory(), containerBuilder
     containerBuilder.WithModule<HangfireModule>(null, assemblyHelper, builder.Configuration, hangfireType);
     containerBuilder.WithModule<EfCoreModule>(null, assemblyHelper);
     containerBuilder.WithModule<MapperModule>(null, assemblyHelper);
+    containerBuilder.WithModule<FileSystemModule>();
 
     containerBuilder.WithModule<SerilogModule>(null, builder.Configuration);
 });
