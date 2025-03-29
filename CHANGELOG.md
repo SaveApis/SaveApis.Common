@@ -1,4 +1,15 @@
 SaveApis.Common
+<a name="2.1.0"></a>
+## [2.1.0](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v2.1.0) (2025-03-29)
+
+### ✨ Features
+
+* **modules:** Builder Module ([#35](https://www.github.com/SaveApis/SaveApis.Common/issues/35)) ([cbedf65](https://www.github.com/SaveApis/SaveApis.Common/commit/cbedf65f9eaa9b2628921a5495ee7ee06fa3e05c))
+
+### Other
+
+* **release:** 2.0.0 ([590220a](https://www.github.com/SaveApis/SaveApis.Common/commit/590220a3cdf85e597a58550177d6635723fba2e7))
+
 <a name="2.0.0"></a>
 ## [2.0.0](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v2.0.0) (2025-03-29)
 
