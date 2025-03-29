@@ -1,4 +1,27 @@
 SaveApis.Common
+<a name="2.0.0"></a>
+## [2.0.0](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v2.0.0) (2025-03-29)
+
+### ✨ Features
+
+* Extension method ([#34](https://www.github.com/SaveApis/SaveApis.Common/issues/34)) ([a8b2e9f](https://www.github.com/SaveApis/SaveApis.Common/commit/a8b2e9faa268ad36dec3c75038347b80d8a12599))
+* **db:** Db entity tracking ([#28](https://www.github.com/SaveApis/SaveApis.Common/issues/28)) ([3f00099](https://www.github.com/SaveApis/SaveApis.Common/commit/3f000999f8bb6043559db56a16d842ac0f34be80))
+* **modules:** EfCore Module ([#24](https://www.github.com/SaveApis/SaveApis.Common/issues/24)) ([36ebb5d](https://www.github.com/SaveApis/SaveApis.Common/commit/36ebb5d5b0878aad92eafc297caec8562f16f9ac))
+* **modules:** FileSystem Module ([#33](https://www.github.com/SaveApis/SaveApis.Common/issues/33)) ([90557a1](https://www.github.com/SaveApis/SaveApis.Common/commit/90557a10ccb5c90f4bf4550e0a2de80202d9c973))
+* **modules:** Hangfire Module ([#32](https://www.github.com/SaveApis/SaveApis.Common/issues/32)) ([8cf73ea](https://www.github.com/SaveApis/SaveApis.Common/commit/8cf73ea82dc507c1a997790f998d048b0fee407e))
+* **modules:** Mapper Module ([#27](https://www.github.com/SaveApis/SaveApis.Common/issues/27)) ([447889c](https://www.github.com/SaveApis/SaveApis.Common/commit/447889c638e31c9fe52c297af42fa9e4a19592ea))
+* **modules:** Mediator Module ([#25](https://www.github.com/SaveApis/SaveApis.Common/issues/25)) ([0c532ef](https://www.github.com/SaveApis/SaveApis.Common/commit/0c532efd3cb504e82f6fc19662a21f7a6503a783))
+* **modules:** Serilog Module ([#26](https://www.github.com/SaveApis/SaveApis.Common/issues/26)) ([16f0240](https://www.github.com/SaveApis/SaveApis.Common/commit/16f0240e11d0422a218ac2263b95fcd53bdfcac3))
+
+### 🐛 Bug Fixes
+
+* **db:** Missing tracking migration ([#29](https://www.github.com/SaveApis/SaveApis.Common/issues/29)) ([3fe07a2](https://www.github.com/SaveApis/SaveApis.Common/commit/3fe07a255937f5dc9e33e778d5ecf3c205e6130f))
+
+### Other
+
+* Refactor folder structure ([#31](https://www.github.com/SaveApis/SaveApis.Common/issues/31)) ([c85c097](https://www.github.com/SaveApis/SaveApis.Common/commit/c85c09754ab3c3a34dec407ffef60acdfbef7f7a))
+* **db:** Move tracking infrastructure from SaveApis.Generator.EfCore ([#30](https://www.github.com/SaveApis/SaveApis.Common/issues/30)) ([164ab14](https://www.github.com/SaveApis/SaveApis.Common/commit/164ab140e20c99493cbe2acf59f81c67c5ea7088))
+
 <a name="1.3.1"></a>
 ## [1.3.1](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v1.3.1) (2025-03-03)
 
