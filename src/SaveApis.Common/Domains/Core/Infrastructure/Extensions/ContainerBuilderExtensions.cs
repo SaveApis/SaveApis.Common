@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Microsoft.Extensions.Configuration;
+using SaveApis.Common.Domains.Builder.DI;
 using SaveApis.Common.Domains.Core.Application.DI;
 using SaveApis.Common.Domains.Core.Infrastructure.DI;
 using SaveApis.Common.Domains.Core.Infrastructure.Helper;
@@ -39,6 +40,7 @@ public static class ContainerBuilderExtensions
         builder.WithModule<HangfireModule>(null, assemblyHelper, configuration, hangfireType);
         builder.WithModule<EfCoreModule>(null, assemblyHelper);
         builder.WithModule<MapperModule>(null, assemblyHelper);
+        builder.WithModule<BuilderModule>(null, assemblyHelper);
         builder.WithModule<FileSystemModule>();
         builder.WithModule<SerilogModule>(null, configuration);
 
