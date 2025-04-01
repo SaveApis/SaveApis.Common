@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace SaveApis.Common.Domains.Tracking.Persistence.Sql
+namespace SaveApis.Common.Domains.Tracking.Persistence.Sql.Migrations
 {
     /// <inheritdoc />
     public partial class CreateTrackingTables : Migration
@@ -35,7 +35,7 @@ namespace SaveApis.Common.Domains.Tracking.Persistence.Sql
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Values",
+                name: "EntryValues",
                 schema: "Tracking",
                 columns: table => new
                 {
@@ -50,9 +50,9 @@ namespace SaveApis.Common.Domains.Tracking.Persistence.Sql
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Values", x => x.Id);
+                    table.PrimaryKey("PK_EntryValues", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Values_Entries_TrackingEntryId",
+                        name: "FK_EntryValues_Entries_TrackingEntryId",
                         column: x => x.TrackingEntryId,
                         principalSchema: "Tracking",
                         principalTable: "Entries",
@@ -62,9 +62,9 @@ namespace SaveApis.Common.Domains.Tracking.Persistence.Sql
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Values_TrackingEntryId",
+                name: "IX_EntryValues_TrackingEntryId",
                 schema: "Tracking",
-                table: "Values",
+                table: "EntryValues",
                 column: "TrackingEntryId");
         }
 
@@ -72,7 +72,7 @@ namespace SaveApis.Common.Domains.Tracking.Persistence.Sql
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Values",
+                name: "EntryValues",
                 schema: "Tracking");
 
             migrationBuilder.DropTable(
