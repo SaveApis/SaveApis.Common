@@ -5,13 +5,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using SaveApis.Common.Domains.Tracking.Persistence.Sql;
 
 #nullable disable
 
-namespace SaveApis.Common.Domains.Tracking.Persistence.Sql
+namespace SaveApis.Common.Domains.Tracking.Persistence.Sql.Migrations
 {
     [DbContext(typeof(TrackingDbContext))]
-    [Migration("20250316182630_CreateTrackingTables")]
+    [Migration("20250401184301_CreateTrackingTables")]
     partial class CreateTrackingTables
     {
         /// <inheritdoc />
@@ -25,7 +26,7 @@ namespace SaveApis.Common.Domains.Tracking.Persistence.Sql
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("SaveApis.Common.Domain.Tracking.Entities.TrackingEntryEntity", b =>
+            modelBuilder.Entity("SaveApis.Common.Domains.Tracking.Domain.Entities.TrackingEntryEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("char(36)");
@@ -45,7 +46,7 @@ namespace SaveApis.Common.Domains.Tracking.Persistence.Sql
                     b.ToTable("Entries", "Tracking");
                 });
 
-            modelBuilder.Entity("SaveApis.Common.Domain.Tracking.Entities.TrackingValueEntity", b =>
+            modelBuilder.Entity("SaveApis.Common.Domains.Tracking.Domain.Entities.TrackingValueEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("char(36)");
@@ -67,12 +68,12 @@ namespace SaveApis.Common.Domains.Tracking.Persistence.Sql
 
                     b.HasIndex("TrackingEntryId");
 
-                    b.ToTable("Values", "Tracking");
+                    b.ToTable("EntryValues", "Tracking");
                 });
 
-            modelBuilder.Entity("SaveApis.Common.Domain.Tracking.Entities.TrackingValueEntity", b =>
+            modelBuilder.Entity("SaveApis.Common.Domains.Tracking.Domain.Entities.TrackingValueEntity", b =>
                 {
-                    b.HasOne("SaveApis.Common.Domain.Tracking.Entities.TrackingEntryEntity", "TrackingEntry")
+                    b.HasOne("SaveApis.Common.Domains.Tracking.Domain.Entities.TrackingEntryEntity", "TrackingEntry")
                         .WithMany("Values")
                         .HasForeignKey("TrackingEntryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -81,7 +82,7 @@ namespace SaveApis.Common.Domains.Tracking.Persistence.Sql
                     b.Navigation("TrackingEntry");
                 });
 
-            modelBuilder.Entity("SaveApis.Common.Domain.Tracking.Entities.TrackingEntryEntity", b =>
+            modelBuilder.Entity("SaveApis.Common.Domains.Tracking.Domain.Entities.TrackingEntryEntity", b =>
                 {
                     b.Navigation("Values");
                 });
