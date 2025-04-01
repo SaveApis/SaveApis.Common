@@ -1,4 +1,11 @@
 SaveApis.Common
+<a name="2.1.1"></a>
+## [2.1.1](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v2.1.1) (2025-04-01)
+
+### 🐛 Bug Fixes
+
+* **tracking:** Cleanup tracking migrations ([#36](https://www.github.com/SaveApis/SaveApis.Common/issues/36)) ([f292ca0](https://www.github.com/SaveApis/SaveApis.Common/commit/f292ca08ae2cb94c21f3a750a7ae62edc804af44))
+
 <a name="2.1.0"></a>
 ## [2.1.0](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v2.1.0) (2025-03-29)
 
