@@ -9,10 +9,9 @@ public class RecurringEventSummaryDto
     public IEvent? Event { get; set; }
 
     public bool IsInCode { get; set; }
-    public bool IsInDatabase { get; set; }
     public bool IsInHangfire { get; set; }
     public bool DifferentCron { get; set; }
 
-    public bool IsInSync => IsInCode && IsInDatabase && IsInHangfire && !DifferentCron;
-    public bool Delete => !IsInCode && (IsInDatabase || IsInHangfire);
+    public bool IsInSync => IsInCode && IsInHangfire && !DifferentCron;
+    public bool Delete => !IsInCode && IsInHangfire;
 }

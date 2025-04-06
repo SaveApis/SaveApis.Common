@@ -12,7 +12,7 @@ using Serilog.Events;
 namespace SaveApis.Common.Domains.Hangfire.Application.Hangfire.Jobs;
 
 [HangfireQueue(HangfireQueue.System)]
-public class SynchronizeRecurringEventsJob(ILogger logger, IMediator mediator) : BaseSetupJob<MigrationCompletedEvent>(logger)
+public class SynchronizeRecurringEventsJob(ILogger logger, IMediator mediator) : BaseJob<MigrationCompletedEvent>(logger)
 {
     [HangfireJobName("Synchronize recurring events")]
     public async override Task RunAsync(MigrationCompletedEvent @event, PerformContext? performContext, CancellationToken cancellationToken)

@@ -10,10 +10,8 @@ using Newtonsoft.Json.Converters;
 using SaveApis.Common.Domains.Core.Infrastructure.DI;
 using SaveApis.Common.Domains.Core.Infrastructure.Helper;
 using SaveApis.Common.Domains.Hangfire.Application.Hangfire.Events;
-using SaveApis.Common.Domains.Hangfire.Application.Resolver;
 using SaveApis.Common.Domains.Hangfire.Domain.Types;
 using SaveApis.Common.Domains.Hangfire.Infrastructure.Jobs;
-using SaveApis.Common.Domains.Hangfire.Infrastructure.Resolver;
 
 namespace SaveApis.Common.Domains.Hangfire.Application.DI;
 
@@ -27,8 +25,6 @@ public class HangfireModule(IAssemblyHelper assemblyHelper, IConfiguration confi
         {
             return;
         }
-
-        builder.RegisterType<JobConfigurationResolver>().As<IJobConfigurationResolver>();
 
         RegisterJobs(builder);
         RegisterHangfireServices(builder);
@@ -107,7 +103,7 @@ public class HangfireModule(IAssemblyHelper assemblyHelper, IConfiguration confi
         });
     }
 
-    private void RegisterHangfireWorker(ContainerBuilder builder)
+    private static void RegisterHangfireWorker(ContainerBuilder builder)
     {
         var collection = new ServiceCollection();
 

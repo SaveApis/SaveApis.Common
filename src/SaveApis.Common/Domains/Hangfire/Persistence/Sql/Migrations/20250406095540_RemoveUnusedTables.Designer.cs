@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SaveApis.Common.Domains.Hangfire.Persistence.Sql;
 
@@ -10,9 +11,11 @@ using SaveApis.Common.Domains.Hangfire.Persistence.Sql;
 namespace SaveApis.Common.Domains.Hangfire.Persistence.Sql.Migrations
 {
     [DbContext(typeof(HangfireDbContext))]
-    partial class HangfireDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250406095540_RemoveUnusedTables")]
+    partial class RemoveUnusedTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
