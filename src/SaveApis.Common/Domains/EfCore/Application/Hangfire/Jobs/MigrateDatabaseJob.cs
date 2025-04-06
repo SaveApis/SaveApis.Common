@@ -14,7 +14,7 @@ using Serilog.Events;
 namespace SaveApis.Common.Domains.EfCore.Application.Hangfire.Jobs;
 
 [HangfireQueue(HangfireQueue.System)]
-public class MigrateDatabaseJob(ILogger logger, IMediator mediator, IEnumerable<IDesignTimeDbContextFactory<BaseDbContext>> factories) : BaseSetupJob<ApplicationStartedEvent>(logger)
+public class MigrateDatabaseJob(ILogger logger, IMediator mediator, IEnumerable<IDesignTimeDbContextFactory<BaseDbContext>> factories) : BaseJob<ApplicationStartedEvent>(logger)
 {
     protected override bool CheckSupport(ApplicationStartedEvent @event)
     {

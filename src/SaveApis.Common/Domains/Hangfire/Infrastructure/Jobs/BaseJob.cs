@@ -1,27 +1,13 @@
 ﻿using Hangfire.Console;
 using Hangfire.Server;
-using SaveApis.Common.Domains.Hangfire.Infrastructure.Configurations;
 using SaveApis.Common.Domains.Hangfire.Infrastructure.Events;
 using Serilog;
 using Serilog.Events;
 
 namespace SaveApis.Common.Domains.Hangfire.Infrastructure.Jobs;
 
-public abstract class BaseJob<TEvent, TConfiguration>(ILogger logger) : IJob<TEvent> where TEvent : IEvent where TConfiguration : IJobConfiguration
+public abstract class BaseJob<TEvent>(ILogger logger) : IJob<TEvent> where TEvent : IEvent
 {
-    private TConfiguration? _configuration;
-
-    protected TConfiguration Configuration => _configuration ?? throw new InvalidOperationException("Job configuration is not set");
-    public void ApplyConfiguration(IJobConfiguration configuration)
-    {
-        if (configuration is not TConfiguration typedConfiguration)
-        {
-            throw new ArgumentException($"Configuration type mismatch. Expected {typeof(TConfiguration).Name}, but got {configuration.GetType().Name}");
-        }
-
-        _configuration = typedConfiguration;
-    }
-
     protected virtual bool CheckSupport(TEvent @event)
     {
         return true;

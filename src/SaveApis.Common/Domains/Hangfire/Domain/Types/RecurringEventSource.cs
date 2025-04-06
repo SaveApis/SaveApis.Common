@@ -3,6 +3,5 @@
 public enum RecurringEventSource
 {
     Code,
-    MySql,
     Hangfire,
 }

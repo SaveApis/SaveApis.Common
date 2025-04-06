@@ -11,7 +11,7 @@ using Serilog.Events;
 namespace SaveApis.Common.Domains.Hangfire.Application.Hangfire.Jobs;
 
 [HangfireQueue(HangfireQueue.System)]
-public class SynchronizeRecurringEventJob(ILogger logger, IMediator mediator) : BaseSetupJob<SynchronizeRecurringEventEvent>(logger)
+public class SynchronizeRecurringEventJob(ILogger logger, IMediator mediator) : BaseJob<SynchronizeRecurringEventEvent>(logger)
 {
     [HangfireJobName("{0}: Synchronize recurring event")]
     public async override Task RunAsync(SynchronizeRecurringEventEvent @event, PerformContext? performContext, CancellationToken cancellationToken)

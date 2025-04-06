@@ -17,24 +17,17 @@ public class RecurringEventSummariesQueryHandler(IMediator mediator) : IQueryHan
             return Result.Fail("Failed to get Hangfire-based recurring events").WithErrors(hangfireResult.Errors);
         }
 
-        var mySqlResult = await mediator.Send(new RecurringEventsQuery(RecurringEventSource.MySql), cancellationToken).ConfigureAwait(false);
-        if (mySqlResult.IsFailed)
-        {
-            return Result.Fail("Failed to get MySQL-based recurring events").WithErrors(mySqlResult.Errors);
-        }
-
         var codeResult = await mediator.Send(new RecurringEventsQuery(RecurringEventSource.Code), cancellationToken).ConfigureAwait(false);
         if (codeResult.IsFailed)
         {
             return Result.Fail("Failed to get code-based recurring events").WithErrors(codeResult.Errors);
         }
 
-        var dtos = new List<RecurringEventSummaryDto>();
-        dtos = Enrich(dtos, hangfireResult.Value, dto => dto.IsInHangfire = true);
-        dtos = Enrich(dtos, mySqlResult.Value, dto => dto.IsInDatabase = true);
-        dtos = Enrich(dtos, codeResult.Value, dto => dto.IsInCode = true);
+        var summaries = new List<RecurringEventSummaryDto>();
+        summaries = Enrich(summaries, hangfireResult.Value, dto => dto.IsInHangfire = true);
+        summaries = Enrich(summaries, codeResult.Value, dto => dto.IsInCode = true);
 
-        return dtos;
+        return summaries;
     }
 
     private static List<RecurringEventSummaryDto> Enrich(List<RecurringEventSummaryDto> dtos, IReadOnlyCollection<RecurringEventGetDto> events, Action<RecurringEventSummaryDto> enrichAction)
