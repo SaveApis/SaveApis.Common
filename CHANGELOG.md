@@ -1,4 +1,11 @@
 SaveApis.Common
+<a name="2.1.2"></a>
+## [2.1.2](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v2.1.2) (2025-04-06)
+
+### 🐛 Bug Fixes
+
+* **hangfire:** Remove job configuration support ([#37](https://www.github.com/SaveApis/SaveApis.Common/issues/37)) ([4820cc1](https://www.github.com/SaveApis/SaveApis.Common/commit/4820cc17cdd19cbc4d6004d32e4c9b2687f826d6))
+
 <a name="2.1.1"></a>
 ## [2.1.1](https://www.github.com/SaveApis/SaveApis.Common/releases/tag/v2.1.1) (2025-04-01)
 
